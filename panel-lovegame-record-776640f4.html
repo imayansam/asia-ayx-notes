@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 简明指南与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fce9d7 0%, #f5d6c6 50%, #edc6b5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.7;
+            color: #3d2c26;
+        }
+
+        .content-card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 250, 245, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 42px;
+            padding: 2.8rem 2.8rem 3.6rem;
+            box-shadow: 0 20px 40px rgba(120, 70, 50, 0.12), 0 8px 16px rgba(0,0,0,0.03);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 28px 52px rgba(120, 70, 50, 0.16);
+        }
+
+        .article-title {
+            font-size: 2.3rem;
+            font-weight: 510;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.15em;
+            color: #3b241e;
+            line-height: 1.2;
+        }
+
+        .article-title span {
+            background: linear-gradient(135deg, #c8643e, #a84c2e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subhead {
+            font-size: 1.05rem;
+            color: #7e5f52;
+            margin-bottom: 2.4rem;
+            border-left: 4px solid #d99474;
+            padding-left: 1.2rem;
+            font-weight: 380;
+            letter-spacing: 0.01em;
+        }
+
+        p {
+            margin-bottom: 1.3rem;
+            font-weight: 380;
+            color: #4a342c;
+        }
+
+        .intro-pull {
+            background: #f3e3da;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.8rem 0 2.2rem;
+            font-size: 1.02rem;
+            color: #4f3329;
+            border-left: 6px solid #d99474;
+            font-style: normal;
+            box-shadow: inset 0 1px 4px rgba(80,40,20,0.04);
+        }
+
+        .intro-pull strong {
+            font-weight: 540;
+            color: #2f1b14;
+        }
+
+        .highlight-text {
+            background: #f0ddd2;
+            padding: 0.1rem 0.3rem;
+            border-radius: 12px;
+            font-weight: 430;
+        }
+
+        .insight-block {
+            background: #faf2ec;
+            border-radius: 30px;
+            padding: 1.5rem 2rem;
+            margin: 2.2rem 0 2.8rem;
+            border: 1px solid #e6cfc0;
+        }
+
+        .insight-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .link-sentence {
+            font-size: 1.08rem;
+            background: #f7ede6;
+            padding: 0.8rem 1.6rem;
+            border-radius: 80px;
+            display: inline-flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin: 1rem 0 1.8rem;
+            border: 1px solid #e1c9ba;
+            box-shadow: 0 2px 6px rgba(140, 80, 50, 0.06);
+        }
+
+        .link-sentence a {
+            color: #904f33;
+            font-weight: 540;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            padding: 0 0.1rem;
+        }
+
+        .link-sentence a:hover {
+            border-bottom-color: #904f33;
+            color: #5f2f1c;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #e7cfbe;
+            color: #3d241b;
+            font-weight: 460;
+            padding: 0.6rem 2rem;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 1rem;
+            border: 1px solid #d3b4a0;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 4px 10px rgba(100, 50, 30, 0.06);
+            letter-spacing: 0.01em;
+        }
+
+        .btn-link:hover {
+            background: #dbbcac;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(100, 50, 30, 0.10);
+        }
+
+        .quote-note {
+            background: #e8d9ce;
+            border-radius: 40px;
+            padding: 1.2rem 2rem;
+            margin: 2.5rem 0 0.8rem;
+            font-size: 0.95rem;
+            color: #4f3429;
+            border: 1px solid #dbbaa8;
+            position: relative;
+            padding-left: 2.6rem;
+        }
+
+        .quote-note::before {
+            content: "💡";
+            position: absolute;
+            left: 1rem;
+            top: 1.2rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #7b5e51;
+            text-align: center;
+            border-top: 1px solid #e5d3c6;
+            padding-top: 1.8rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note a {
+            color: #6d4231;
+            text-decoration: none;
+            border-bottom: 1px dotted #b58f7a;
+        }
+
+        .footer-note a:hover {
+            border-bottom-style: solid;
+            color: #3f2218;
+        }
+
+        @media (max-width: 550px) {
+            .content-card {
+                padding: 2rem 1.5rem 2.4rem;
+                border-radius: 32px;
+            }
+            .article-title {
+                font-size: 1.8rem;
+            }
+            .subhead {
+                font-size: 0.95rem;
+                padding-left: 0.8rem;
+            }
+            .insight-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .link-sentence {
+                font-size: 1rem;
+                padding: 0.6rem 1.2rem;
+            }
+            .quote-note {
+                padding: 1rem 1.2rem 1rem 2.2rem;
+            }
+            .quote-note::before {
+                left: 0.6rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .content-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-card">
+        <h1 class="article-title"><span>爱游戏</span> · 一份简明指南</h1>
+        <div class="subhead">从访问方式到日常使用，几段笔记梳理思路</div>
+
+        <p>
+            如果你刚刚接触这个平台，或许会好奇它到底能做什么。简单来说，<span class="highlight-text">爱游戏</span>是一个将不同游戏资源与互动功能整合在一起的地方。它不追求花哨的包装，而是试图让每一步操作都清晰可循。
+        </p>
+
+        <div class="intro-pull">
+            <strong>一份提醒：</strong>很多人在初次访问时会忽略页面底部的状态提示。其实那些小图标和数字往往包含了账号状态、连接质量或任务进度。花十秒钟扫一眼，能省去之后不少核对的时间。
+        </div>
+
+        <p>
+            关于登录与注册，流程比想象中直接。你只需要准备一个常用的邮箱，并设置一个自己记得住、又不容易被猜到的密码。平台不强制绑定手机或社交账号，这一点对注重隐私的人来说比较友好。但请留意，部分功能（比如留言或组队）可能会要求完成简单的验证——这是为了过滤掉机器行为，并非多余的门槛。
+        </p>
+
+        <div class="insight-block">
+            <p><strong>几个值得留意的细节：</strong></p>
+            <p>· 主界面左侧的筛选栏可以按类型、热度、更新时间排序，比直接搜索更有效率。<br>
+            · 如果你经常使用某个功能，可以把它添加到“常用”列表，下次直接从个人面板进入。<br>
+            · 每过一段时间，平台会更新一批限时内容。它们的入口通常藏在二级页面，留意公告栏的灰色小字即可。</p>
+        </div>
+
+        <p>
+            有一次和朋友聊到，他说自己每次打开网站都要先找半天设置按钮。其实在右上角头像下拉菜单里，有一个齿轮图标——点击后就能调整通知、界面语言和快捷键。这个设计不算显眼，但用顺手之后会觉得很自然。也许这就是<span class="highlight-text">爱游戏</span>的脾气：它不急于把所有东西摊在你面前，而是等你慢慢发现。
+        </p>
+
+        <div class="link-sentence">
+            如果你还没试过，不妨从 <a href="https://panel-lovegame.com" target="_blank" rel="noopener noreferrer">爱游戏</a> 开始，花五分钟熟悉一下布局。
+        </div>
+
+        <p>
+            关于安全与访问，这里有一个常被忽略的角度：尽量使用私人设备登录，避免在公共电脑上勾选“记住密码”。另外，平台提供了两步验证选项，建议花两分钟开启——它不会降低登录速度，但能大幅提升账号安全性。如果你遇到加载缓慢的情况，可以先检查一下本地网络，或者切换一个时间段再试。多数时候并非服务器问题。
+        </p>
+
+        <div class="quote-note">
+            一个小观察：如果你把常用功能记在备忘录里，用一周之后基本就不需要再翻菜单了。<br>
+            这或许就是所谓“上手之后，就不用再想怎么上手”的状态。
+        </div>
+
+        <p style="margin-top: 1.8rem;">
+            总的来说，<span class="highlight-text">爱游戏</span> 适合那些不喜欢冗余步骤的人。它的界面算不上惊艳，但每一项设计都有实际用途。与其把它看作一个大而全的乐园，不如说它是一个工具集——你需要花一点时间了解每样工具的摆放位置，然后它们就会在合适的时候发挥价值。
+        </p>
+
+        <div style="margin-top: 2.2rem; text-align: right;">
+            <a href="https://panel-lovegame.com" class="btn-link" target="_blank" rel="noopener noreferrer">爱游戏</a>
+        </div>
+
+        <div class="footer-note">
+            <span>—— 以上内容基于日常使用整理 · 2025 ·</span><br>
+            <span style="font-size: 0.85rem;">若有疑问可参考平台帮助页，或留意 <a href="https://panel-lovegame.com" target="_blank" rel="noopener noreferrer">爱游戏</a> 公告区的变动。</span>
+        </div>
+    </div>
+</body>
+</html>
